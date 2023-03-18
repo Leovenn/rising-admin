@@ -2,8 +2,13 @@
   "extends": "@vue/tsconfig/tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+    },
     "types": [
-      "node"
+      "node",
     ]
   },
   "exclude": [

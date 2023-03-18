@@ -1,6 +1,8 @@
 {
   "recommendations": [
-    "Vue.volar",
-    "Vue.vscode-typescript-vue-plugin"
+    "vue.volar",
+    "vue.vscode-typescript-vue-plugin",
+    "christian-kohler.path-intellisense",
+    "antfu.unocss"
   ]
 }
