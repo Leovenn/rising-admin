@@ -1,0 +1,11 @@
+public
+
+node_modules
+
+dist
+
+*.lock
+
+*.yaml
+
+.*
