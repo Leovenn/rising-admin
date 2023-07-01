@@ -3,6 +3,7 @@
     "vue.volar",
     "vue.vscode-typescript-vue-plugin",
     "christian-kohler.path-intellisense",
-    "antfu.unocss"
+    "antfu.unocss",
+    "esbenp.prettier-vscode"
   ]
 }

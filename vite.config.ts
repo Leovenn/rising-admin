@@ -11,7 +11,7 @@ export default defineConfig({
   plugins: [
     vue(),
     AutoImport({
-      resolvers: ElementPlusResolver(),
+      resolvers: [ElementPlusResolver()],
       dts: 'src/typings/auto-imports.d.ts',
       include: [
         /\.tsx?$/, // .ts, .tsx
