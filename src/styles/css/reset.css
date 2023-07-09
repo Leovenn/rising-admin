@@ -43,4 +43,5 @@ h6 {
 }
 #app {
   isolation: isolate;
+  height: 100%;
 }

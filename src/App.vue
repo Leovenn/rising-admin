@@ -1,39 +1,32 @@
 <template>
-  <div class="a">
-    <div class="b">fdasf</div>
-    <el-input v-model="a">132</el-input>
-    <div class="c-yellow bg-#666 flex">
-      <div>1</div>
-      <div>2</div>
+  <div class="flex h-full">
+    <aside class="b-r-1 b-r-solid b-r-#e8e8e8 h-full">
+      <div></div>
+
+      <el-menu default-active="2" class="border-r-transparent">
+        <el-sub-menu index="1">
+          <template #title>
+            <span>Navigator One</span>
+          </template>
+          <el-menu-item index="1-1">item one</el-menu-item>
+          <el-menu-item index="1-2">item two</el-menu-item>
+          <el-menu-item index="1-3">item three</el-menu-item>
+          <el-sub-menu index="1-4">
+            <template #title>item four</template>
+            <el-menu-item index="1-4-1">item one</el-menu-item>
+          </el-sub-menu>
+        </el-sub-menu>
+      </el-menu>
+    </aside>
+    <div class="h-full flex-1 flex flex-col">
+      <header></header>
+      <div></div>
+      <main></main>
+      <footer></footer>
     </div>
   </div>
 </template>
 
-<script lang="ts" setup>
-const a = ref('1')
-
-const b = reactive({
-  a,
-})
-
-// let cc = 1
-
-// cc = '2'
-
-const c1 = reactive({
-  a: 1,
-})
-
-const c2 = toRefs(c1)
-
-console.log(JSON.stringify(c1))
-c2.a.value = 4
-
-console.log(c1.a === c2.a.value)
-
-console.log(JSON.stringify(b))
-
-// ElMessage.error('123')
-</script>
+<script lang="ts" setup></script>
 
 <style lang="less" scoped></style>
