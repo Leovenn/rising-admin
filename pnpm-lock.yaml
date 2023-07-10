@@ -1,10 +1,9 @@
-lockfileVersion: '6.1'
-
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
+lockfileVersion: '6.0'
 
 dependencies:
+  '@element-plus/icons-vue':
+    specifier: ^2.1.0
+    version: 2.1.0(vue@3.3.4)
   element-plus:
     specifier: ^2.3.7
     version: 2.3.7(vue@3.3.4)
@@ -36,7 +35,7 @@ devDependencies:
     version: 4.9.5
   unocss:
     specifier: ^0.50.8
-    version: 0.50.8(postcss@8.4.25)(vite@4.4.2)
+    version: 0.50.8(vite@4.4.2)
   unplugin-auto-import:
     specifier: ^0.15.3
     version: 0.15.3
@@ -482,11 +481,9 @@ packages:
       sirv: 2.0.3
     dev: true
 
-  /@unocss/postcss@0.50.8(postcss@8.4.25):
+  /@unocss/postcss@0.50.8:
     resolution: {integrity: sha512-UbFD+25EkmBonZggKuQdunAU+1O6O83NcnMqSalhn4vhsr4yHeD4P+Omr+CnBcuOxkP4h2JYHzfzdpe4DZxKYg==}
     engines: {node: '>=14'}
-    peerDependencies:
-      postcss: ^8.4.21
     dependencies:
       '@unocss/config': 0.50.8
       '@unocss/core': 0.50.8
@@ -1645,7 +1642,7 @@ packages:
       - rollup
     dev: true
 
-  /unocss@0.50.8(postcss@8.4.25)(vite@4.4.2):
+  /unocss@0.50.8(vite@4.4.2):
     resolution: {integrity: sha512-3yqKkSm/SKCKxFolXNR12Mi64lr4PW95LSHKZ/a9Yzlf2PT1NirAn8/uJ8KoJJBNR2YWobtkLi4UplFz/8IAYA==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -1657,7 +1654,7 @@ packages:
       '@unocss/astro': 0.50.8(vite@4.4.2)
       '@unocss/cli': 0.50.8
       '@unocss/core': 0.50.8
-      '@unocss/postcss': 0.50.8(postcss@8.4.25)
+      '@unocss/postcss': 0.50.8
       '@unocss/preset-attributify': 0.50.8
       '@unocss/preset-icons': 0.50.8
       '@unocss/preset-mini': 0.50.8
@@ -1674,7 +1671,6 @@ packages:
       '@unocss/transformer-variant-group': 0.50.8
       '@unocss/vite': 0.50.8(vite@4.4.2)
     transitivePeerDependencies:
-      - postcss
       - rollup
       - supports-color
       - vite
@@ -1855,3 +1851,7 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
