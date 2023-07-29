@@ -6,9 +6,7 @@ import App from '@/App.vue'
 
 import router from '@/router'
 
-import '@/styles/css/reset.css'
-
-import 'uno.css'
+import '@/styles'
 
 const app = createApp(App)
 
