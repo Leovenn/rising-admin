@@ -8,6 +8,7 @@ export default defineConfig({
     presetUno(),
     presetIcons({
       autoInstall: true,
+      scale: 1.2,
       collections: {
         custom: FileSystemIconLoader(path.resolve(__dirname, 'src/assets/svg-icon')),
       },

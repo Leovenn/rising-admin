@@ -1,15 +1,34 @@
 <template>
   <div class="chrome-tab h-full flex c-[var(--el-text-color-primary)] text-14px p-[10px_10px_0_10px]">
     <div class="chrome-tab-item active">
-      <div>工作工作台工作台工作台工作台台</div>
+      <div class="flex items-center gap-10px">
+        <div class="icon">
+          <i-line-md:heart-filled />
+        </div>
+        <div class="title">工作台</div>
+        <div class="i-line-md:close-small hover:i-line-md:close-circle"></div>
+      </div>
     </div>
 
     <div class="chrome-tab-item">
-      <div>分分析页分析页分析页析页</div>
+      <div class="flex items-center gap-10px">
+        <div class="icon">
+          <!-- <i-line-md:close-small /> -->
+          <i-line-md:moon-twotone />
+        </div>
+        <div class="title">分分析页分析页分析页析页</div>
+        <div class="i-line-md:close-small hover:i-line-md:close-circle"></div>
+      </div>
     </div>
 
     <div class="chrome-tab-item">
-      <div>你好特踏实他</div>
+      <div class="flex items-center gap-10px">
+        <div class="icon">
+          <i-line-md:linkedin />
+        </div>
+        <div class="title">仪表盘</div>
+        <div class="i-line-md:close-small hover:i-line-md:close-circle"></div>
+      </div>
     </div>
   </div>
 </template>

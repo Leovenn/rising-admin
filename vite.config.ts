@@ -30,6 +30,7 @@ export default defineConfig({
     UnoCSS(),
 
     Icons({
+      scale: 1.2,
       customCollections: {
         custom: FileSystemIconLoader(resolve(__dirname, 'src/assets/svg-icon')),
       },
