@@ -1,11 +1,20 @@
+
 public
 
 node_modules
+
+*.md
 
 dist
 
 *.lock
 
+
 *.yaml
 
 .*
+
+
+
+
+
