@@ -13,6 +13,7 @@ import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 export default defineConfig({
   plugins: [
     vue(),
+
     AutoImport({
       resolvers: [ElementPlusResolver()],
       dts: 'src/typings/auto-imports.d.ts',
@@ -22,6 +23,7 @@ export default defineConfig({
       ],
       imports: ['vue', 'vue-router'],
     }),
+
     Components({
       resolvers: [ElementPlusResolver(), IconsResolver({ customCollections: ['custom'] })],
       dts: 'src/typings/components.d.ts',
@@ -34,6 +36,7 @@ export default defineConfig({
       customCollections: {
         custom: FileSystemIconLoader(resolve(__dirname, 'src/assets/svg-icon')),
       },
+      autoInstall: false,
     }),
   ],
 
