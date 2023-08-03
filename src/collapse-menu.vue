@@ -1,15 +1,14 @@
 <template>
   <aside class="h-full select-none b-r-1px b-r-solid b-r-[var(--el-border-color)] transition-width duration-200" :class="{ w220px: !isCollapse, w65px: isCollapse }">
     <div class="h60px flex items-center justify-center gap-10px c-[var(--primary-color)] relative">
-      <div class="text-30px"><i-custom:logo /></div>
+      <div class="text-30px"><svg-icon name="custom:logo" /></div>
 
       <h2 class="font-bold text-16px" v-if="!isCollapse">Rising Admin</h2>
 
       <div
         class="cursor-pointer absolute right--22px border-1px border-[var(--el-border-color)] border-solid text-15px b-rd-r-10px color-[var(--el-text-color-primary)] p-1px"
         @click="isCollapse = !isCollapse">
-        <i-line-md:menu-fold-right v-if="isCollapse" />
-        <i-line-md:menu-fold-left v-else />
+        <svg-icon :name="isCollapse ? 'line-md:menu-fold-right' : 'line-md:menu-fold-left'" />
       </div>
     </div>
 

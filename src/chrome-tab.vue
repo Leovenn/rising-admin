@@ -2,9 +2,11 @@
   <div class="chrome-tab">
     <div class="chrome-tab-item" v-for="item in list">
       <div class="chrome-tab-item-content">
-        <div class="icon"><component :is="item.icon" /></div>
+        <div class="icon">
+          <svg-icon :name="item.icon" />
+        </div>
         <div class="title">{{ item.title }}</div>
-        <div class="i-line-md:close-small hover:i-line-md:close-circle" v-if="item.isClose"></div>
+        <div class="icon-line-md:close-small hover:icon-line-md:close-circle" v-if="item.isClose"></div>
       </div>
     </div>
   </div>
@@ -14,19 +16,19 @@
 const list = ref([
   {
     title: '工作台',
-    icon: 'i-line-md:heart-filled',
+    icon: 'line-md:heart-filled',
     isClose: true,
   },
 
   {
     title: '分析页',
-    icon: 'i-line-md:moon-twotone',
+    icon: 'line-md:moon-twotone',
     isClose: true,
   },
 
   {
     title: '仪表盘',
-    icon: 'i-line-md:linkedin',
+    icon: 'line-md:linkedin',
     isClose: true,
   },
 ])

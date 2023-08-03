@@ -12,8 +12,7 @@ export default defineConfig({
       collections: {
         custom: FileSystemIconLoader(path.resolve(__dirname, 'src/assets/svg-icon')),
       },
+      prefix: 'icon-',
     }),
   ],
 })
-
-// test git

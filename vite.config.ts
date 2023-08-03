@@ -25,8 +25,9 @@ export default defineConfig({
     }),
 
     Components({
-      resolvers: [ElementPlusResolver(), IconsResolver({ customCollections: ['custom'] })],
+      resolvers: [ElementPlusResolver(), IconsResolver({ customCollections: ['custom'], prefix: false })],
       dts: 'src/typings/components.d.ts',
+      dirs: ['src/components'],
     }),
 
     UnoCSS(),
