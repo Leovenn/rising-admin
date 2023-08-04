@@ -1,7 +1,7 @@
 // uno.config.ts
 import { defineConfig, presetAttributify, presetIcons, presetTypography, presetUno, presetWebFonts, transformerDirectives, transformerVariantGroup } from 'unocss'
 import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders'
-import path from 'path'
+import { resolve } from 'path'
 
 export default defineConfig({
   presets: [
@@ -10,7 +10,7 @@ export default defineConfig({
       autoInstall: false,
       scale: 1.2,
       collections: {
-        custom: FileSystemIconLoader(path.resolve(__dirname, 'src/assets/svg-icon')),
+        custom: FileSystemIconLoader(resolve(__dirname, 'src/assets/svg-icon')),
       },
       prefix: 'icon-',
     }),

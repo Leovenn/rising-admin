@@ -2,7 +2,7 @@
   <div class="flex h-full">
     <collapse-menu />
 
-    <div class="h-full flex-1 flex flex-col">
+    <div class="h-full flex-1 flex flex-col overflow-hidden">
       <header class="h-60px shadow-[0_1px_0px_var(--el-border-color)] flex items-center p-l-22px">
         <nav class="p-[0px_10px]">
           <el-breadcrumb separator="/">

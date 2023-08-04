@@ -5,7 +5,9 @@
         <div class="icon">
           <svg-icon :name="item.icon" />
         </div>
+
         <div class="title">{{ item.title }}</div>
+
         <div class="icon-line-md:close-small hover:icon-line-md:close-circle" v-if="item.isClose"></div>
       </div>
     </div>
@@ -26,6 +28,81 @@ const list = ref([
     isClose: true,
   },
 
+  {
+    title: '仪表盘',
+    icon: 'line-md:linkedin',
+    isClose: true,
+  },
+  {
+    title: '工作台',
+    icon: 'line-md:heart-filled',
+    isClose: true,
+  },
+
+  {
+    title: '分析页',
+    icon: 'line-md:moon-twotone',
+    isClose: true,
+  },
+
+  {
+    title: '仪表盘',
+    icon: 'line-md:linkedin',
+    isClose: true,
+  },
+
+  {
+    title: '工作台',
+    icon: 'line-md:heart-filled',
+    isClose: true,
+  },
+
+  {
+    title: '分析页',
+    icon: 'line-md:moon-twotone',
+    isClose: true,
+  },
+
+  {
+    title: '仪表盘',
+    icon: 'line-md:linkedin',
+    isClose: true,
+  },
+  {
+    title: '工作台',
+    icon: 'line-md:heart-filled',
+    isClose: true,
+  },
+
+  {
+    title: '分析页',
+    icon: 'line-md:moon-twotone',
+    isClose: true,
+  },
+
+  {
+    title: '仪表盘',
+    icon: 'line-md:linkedin',
+    isClose: true,
+  },
+
+  {
+    title: '分析页',
+    icon: 'line-md:moon-twotone',
+    isClose: true,
+  },
+
+  {
+    title: '仪表盘',
+    icon: 'line-md:linkedin',
+    isClose: true,
+  },
+
+  {
+    title: '仪表盘',
+    icon: 'line-md:linkedin',
+    isClose: true,
+  },
   {
     title: '仪表盘',
     icon: 'line-md:linkedin',
@@ -68,6 +145,17 @@ const list = ref([
 
   user-select: none;
 
+  overflow-x: auto;
+
+  overflow-y: hidden;
+
+  // max-width: 100%;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
   .chrome-tab-item {
     .flex-item-center-relative ();
 
@@ -89,6 +177,12 @@ const list = ref([
         position: absolute;
         right: -13px;
       }
+
+      .title {
+        white-space: nowrap;
+      }
+
+      font-size: 14px;
     }
 
     &::before,

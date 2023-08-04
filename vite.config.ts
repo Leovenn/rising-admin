@@ -25,7 +25,7 @@ export default defineConfig({
     }),
 
     Components({
-      resolvers: [ElementPlusResolver(), IconsResolver({ customCollections: ['custom'], prefix: false })],
+      resolvers: [ElementPlusResolver(), IconsResolver({ customCollections: ['custom'], prefix: 'icon' })],
       dts: 'src/typings/components.d.ts',
       dirs: ['src/components'],
     }),
@@ -34,6 +34,7 @@ export default defineConfig({
 
     Icons({
       scale: 1.2,
+      compiler: 'vue3',
       customCollections: {
         custom: FileSystemIconLoader(resolve(__dirname, 'src/assets/svg-icon')),
       },
