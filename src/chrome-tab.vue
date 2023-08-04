@@ -1,5 +1,5 @@
 <template>
-  <div class="chrome-tab">
+  <div class="chrome-tab scroll-wrapper" ref="tabScrollRef">
     <div class="chrome-tab-item" v-for="item in list">
       <div class="chrome-tab-item-content">
         <div class="icon">
@@ -15,6 +15,10 @@
 </template>
 
 <script lang="ts" setup>
+import BScroll from '@better-scroll/core'
+
+const tabScrollRef = ref<HTMLDivElement>()
+
 const list = ref([
   {
     title: '工作台',
@@ -109,6 +113,17 @@ const list = ref([
     isClose: true,
   },
 ])
+
+onMounted(() => {
+  console.log(tabScrollRef.value)
+
+  const bs = new BScroll(tabScrollRef.value!, {
+    scrollX: true,
+    probeType: 3, // listening scroll event
+  })
+
+  console.log()
+})
 </script>
 
 <style lang="less" scoped>

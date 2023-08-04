@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@better-scroll/core':
+    specifier: ^2.5.1
+    version: 2.5.1
   '@element-plus/icons-vue':
     specifier: ^2.1.0
     version: 2.1.0(vue@3.3.4)
@@ -12,8 +15,8 @@ dependencies:
     specifier: ^2.9.3
     version: 2.9.3
   element-plus:
-    specifier: ^2.3.8
-    version: 2.3.8(vue@3.3.4)
+    specifier: ^2.3.9
+    version: 2.3.9(vue@3.3.4)
   pinia:
     specifier: ^2.1.6
     version: 2.1.6(typescript@5.1.6)(vue@3.3.4)
@@ -32,8 +35,8 @@ devDependencies:
     specifier: ^2.1.7
     version: 2.1.7
   '@types/node':
-    specifier: ^20.4.6
-    version: 20.4.6
+    specifier: ^20.4.7
+    version: 20.4.7
   '@vitejs/plugin-vue':
     specifier: ^4.2.3
     version: 4.2.3(vite@4.4.8)(vue@3.3.4)
@@ -60,7 +63,7 @@ devDependencies:
     version: 0.25.1(vue@3.3.4)
   vite:
     specifier: ^4.4.8
-    version: 4.4.8(@types/node@20.4.6)(less@4.1.3)
+    version: 4.4.8(@types/node@20.4.7)(less@4.1.3)
   vue-tsc:
     specifier: ^1.8.8
     version: 1.8.8(typescript@5.1.6)
@@ -108,6 +111,16 @@ packages:
       '@babel/helper-string-parser': 7.22.5
       '@babel/helper-validator-identifier': 7.22.5
       to-fast-properties: 2.0.0
+
+  /@better-scroll/core@2.5.1:
+    resolution: {integrity: sha512-koKOuYA55dQ04FJRIVUpMGDr1hbCfWmfX0MGp1hKagkQSWSRpwblqACiwtggVauoj9aaJRJZ9hDsTM4weaavlg==}
+    dependencies:
+      '@better-scroll/shared-utils': 2.5.1
+    dev: false
+
+  /@better-scroll/shared-utils@2.5.1:
+    resolution: {integrity: sha512-AplkfSjXVYP9LZiD6JsKgmgQJ/mG4uuLmBuwLz8W5OsYc7AYTfN8kw6GqZ5OwCGoXkVhBGyd8NeC4xwYItp0aw==}
+    dev: false
 
   /@ctrl/tinycolor@3.6.0:
     resolution: {integrity: sha512-/Z3l6pXthq0JvMYdUFyX9j0MaCltlIn6mfh9jLyQwg5aPKxkyNa0PTHtU1AlFXLNk55ZuAeJRcpvq+tmLfKmaQ==}
@@ -450,8 +463,8 @@ packages:
     resolution: {integrity: sha512-22y3o88f4a94mKljsZcanlNWPzO0uBsBdzLAngf2tp533LzZcQzb6+eZPJ+vCTt+bqF2XnvT9gejTLsAcJAJyQ==}
     dev: false
 
-  /@types/node@20.4.6:
-    resolution: {integrity: sha512-q0RkvNgMweWWIvSMDiXhflGUKMdIxBo2M2tYM/0kEGDueQByFzK4KZAgu5YHGFNxziTlppNpTIBcqHQAxlfHdA==}
+  /@types/node@20.4.7:
+    resolution: {integrity: sha512-bUBrPjEry2QUTsnuEjzjbS7voGWCc30W0qzgMf90GPeDGFRakvrz47ju+oqDAKCXLUCe39u57/ORMl/O/04/9g==}
     dev: true
 
   /@types/web-bluetooth@0.0.16:
@@ -642,7 +655,7 @@ packages:
       chokidar: 3.5.3
       fast-glob: 3.3.1
       magic-string: 0.30.2
-      vite: 4.4.8(@types/node@20.4.6)(less@4.1.3)
+      vite: 4.4.8(@types/node@20.4.7)(less@4.1.3)
     transitivePeerDependencies:
       - rollup
     dev: true
@@ -654,7 +667,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.4.8(@types/node@20.4.6)(less@4.1.3)
+      vite: 4.4.8(@types/node@20.4.7)(less@4.1.3)
       vue: 3.3.4
     dev: true
 
@@ -954,8 +967,8 @@ packages:
     resolution: {integrity: sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==}
     dev: true
 
-  /element-plus@2.3.8(vue@3.3.4):
-    resolution: {integrity: sha512-yHQR0/tG2LvPkpGUt7Te/hPmP2XW/BytBNUbx+EFO54VnGCOE3upmQcVffNp1PLgwg9sthYDXontUWpnpmLPJw==}
+  /element-plus@2.3.9(vue@3.3.4):
+    resolution: {integrity: sha512-TIOLnPl4cnoCPXqK3QYh+jpkthUBQnAM21O7o3Lhbse8v9pfrRXRTaBJtoEKnYNa8GZ4lZptUfH0PeZgDCNLUg==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
@@ -1527,8 +1540,8 @@ packages:
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
     dev: true
 
-  /rollup@3.27.1:
-    resolution: {integrity: sha512-tXNDFwOkN6C2w5Blj1g6ForKeFw6c1mDu5jxoeDO3/pmYjgt+8yvIFjKzH5FQUq70OKZBkOt0zzv0THXL7vwzQ==}
+  /rollup@3.27.2:
+    resolution: {integrity: sha512-YGwmHf7h2oUHkVBT248x0yt6vZkYQ3/rvE5iQuVBh3WO8GcJ6BNeOkpoX1yMHIiBm18EMLjBPIoUDkhgnyxGOQ==}
     engines: {node: '>=14.18.0', npm: '>=8.0.0'}
     hasBin: true
     optionalDependencies:
@@ -1809,7 +1822,7 @@ packages:
       webpack-virtual-modules: 0.5.0
     dev: true
 
-  /vite@4.4.8(@types/node@20.4.6)(less@4.1.3):
+  /vite@4.4.8(@types/node@20.4.7)(less@4.1.3):
     resolution: {integrity: sha512-LONawOUUjxQridNWGQlNizfKH89qPigK36XhMI7COMGztz8KNY0JHim7/xDd71CZwGT4HtSRgI7Hy+RlhG0Gvg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -1837,11 +1850,11 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 20.4.6
+      '@types/node': 20.4.7
       esbuild: 0.18.17
       less: 4.1.3
       postcss: 8.4.27
-      rollup: 3.27.1
+      rollup: 3.27.2
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
