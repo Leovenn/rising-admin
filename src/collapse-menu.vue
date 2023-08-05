@@ -14,7 +14,7 @@
 
     <div class="h-[calc(100%-60px)] aside-menu">
       <el-scrollbar>
-        <el-menu default-active="2" class="border-r-none p-r-10px p-l-10px p-b-10px" :collapse="isCollapse" :collapse-transition="false" menu-trigger="click">
+        <!-- <el-menu default-active="2" class="border-r-none p-r-10px p-l-10px p-b-10px" :collapse="isCollapse" :collapse-transition="false">
           <el-sub-menu index="1" popper-class="collapse-sub-menu" :popper-offset="15">
             <template #title>
               <el-icon><setting /></el-icon>
@@ -48,19 +48,10 @@
               <span class="aside-menu-title">菜单菜单已菜单已菜单已菜单已菜单已菜单已菜单已菜单已菜单已菜单已已</span>
             </template>
           </el-menu-item>
-          <el-menu-item index="3">
-            <el-icon><document /></el-icon>
-            <template #title>Navigator Three</template>
-          </el-menu-item>
-          <el-menu-item index="4">
-            <el-icon><Star /></el-icon>
-            <template #title>Navigator Four</template>
-          </el-menu-item>
+        </el-menu> -->
 
-          <!-- <el-menu-item :index="item.toString()" v-for="item in text">
-            <el-icon><Star /></el-icon>
-            <template #title>{{ '菜单' + item }}</template>
-          </el-menu-item> -->
+        <el-menu class="border-r-none p-r-10px p-l-10px p-b-10px" :collapse="isCollapse" :collapse-transition="false" default-active="1">
+          <collapse-sub-menu :list="list" />
         </el-menu>
       </el-scrollbar>
     </div>
@@ -70,7 +61,47 @@
 <script lang="ts" setup>
 import { Document, Setting, Lock, User, Position, Star } from '@element-plus/icons-vue'
 
+import CollapseSubMenu from './collapse-sub-menu.vue'
+
 const text = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+
+const list = ref([
+  {
+    title: '工作台',
+    icon: 'icon-park-outline:workbench',
+    id: '1',
+  },
+
+  {
+    title: '多级菜单',
+    icon: 'icon-park-outline:file-excel',
+    id: '2',
+
+    children: [
+      {
+        title: '一级菜单',
+        icon: 'icon-park-outline:branch-one',
+        id: '2-1',
+
+        children: [
+          {
+            title: '二级菜单',
+            icon: 'icon-park-outline:bowl-one',
+            id: '2-1-1',
+
+            children: [
+              {
+                title: '三级菜单',
+                icon: 'icon-park-outline:fire',
+                id: '2-1-1-1',
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+])
 
 const isCollapse = ref(false)
 </script>
@@ -80,13 +111,6 @@ const isCollapse = ref(false)
   --el-menu-item-height: 46px;
 
   --el-menu-sub-item-height: var(--el-menu-item-height);
-
-  .aside-menu-title {
-    flex: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
 
   :deep(.el-menu) {
     display: flex;
@@ -129,6 +153,7 @@ const isCollapse = ref(false)
       .el-menu-item {
         .el-menu-tooltip__trigger {
           justify-content: center;
+          padding: 0;
         }
       }
 

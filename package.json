@@ -13,7 +13,6 @@
     "@better-scroll/core": "^2.5.1",
     "@better-scroll/mouse-wheel": "^2.5.1",
     "@better-scroll/observe-dom": "^2.5.1",
-    "@element-plus/icons-vue": "^2.1.0",
     "colord": "^2.9.3",
     "element-plus": "^2.3.9",
     "pinia": "^2.1.6",
@@ -21,6 +20,7 @@
     "vue-router": "^4.2.4"
   },
   "devDependencies": {
+    "@iconify-json/icon-park-outline": "^1.1.11",
     "@iconify-json/line-md": "^1.1.25",
     "@iconify/utils": "^2.1.7",
     "@types/node": "^20.4.7",

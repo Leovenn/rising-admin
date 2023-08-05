@@ -10,7 +10,16 @@
 
   <icon-line-md:menu-fold-right v-if="isRender('line-md:menu-fold-right')" />
 
-  <!-- mdi 集合 -->
+  <!-- icon-park-outline 集合 -->
+  <icon-icon-park-outline:workbench v-if="isRender('icon-park-outline:workbench')" />
+
+  <icon-icon-park-outline:file-excel v-if="isRender('icon-park-outline:file-excel')" />
+
+  <icon-icon-park-outline:branch-one v-if="isRender('icon-park-outline:branch-one')" />
+
+  <icon-icon-park-outline:bowl-one v-if="isRender('icon-park-outline:bowl-one')" />
+
+  <icon-icon-park-outline:fire v-if="isRender('icon-park-outline:fire')" />
 
   <!-- 本地文件夹icon -->
   <icon-custom:logo v-if="isRender('custom:logo')" />
