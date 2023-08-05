@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-full">
-    <collapse-menu />
+    <aside-menu />
 
     <div class="h-full flex-1 flex flex-col overflow-hidden">
       <header class="h-60px shadow-[0_1px_0px_var(--el-border-color)] flex items-center p-l-22px">
@@ -26,7 +26,7 @@
 </template>
 
 <script lang="ts" setup>
-import CollapseMenu from './collapse-menu.vue'
+import AsideMenu from './aside-menu.vue'
 import ChromeTab from './chrome-tab.vue'
 import { colord } from 'colord'
 
