@@ -1,14 +1,16 @@
 <template>
-  <div class="chrome-tab scroll-wrapper" ref="tabScrollRef">
-    <div class="chrome-tab-item" v-for="item in list">
-      <div class="chrome-tab-item-content">
-        <div class="icon">
-          <svg-icon :name="item.icon" />
+  <div class="chrome-tab" ref="tabScrollRef">
+    <div class="chrome-tab-content">
+      <div class="chrome-tab-item" v-for="item in list" @click="test" :class="{ active: item.active }">
+        <div class="chrome-tab-item-content">
+          <div class="icon">
+            <svg-icon :name="item.icon" />
+          </div>
+
+          <div class="title">{{ item.title }}</div>
+
+          <div class="icon-line-md:close-small hover:icon-line-md:close-circle" v-if="item.isClose"></div>
         </div>
-
-        <div class="title">{{ item.title }}</div>
-
-        <div class="icon-line-md:close-small hover:icon-line-md:close-circle" v-if="item.isClose"></div>
       </div>
     </div>
   </div>
@@ -16,8 +18,15 @@
 
 <script lang="ts" setup>
 import BScroll from '@better-scroll/core'
+import ObserveDOM from '@better-scroll/observe-dom'
+import MouseWheel from '@better-scroll/mouse-wheel'
+import type { BScrollConstructor } from '@better-scroll/core/dist/types/BScroll'
+import { debounce } from '@/utils/debounce'
+BScroll.use(ObserveDOM).use(MouseWheel)
 
 const tabScrollRef = ref<HTMLDivElement>()
+
+let bScrollInstance: null | BScrollConstructor = null
 
 const list = ref([
   {
@@ -30,6 +39,7 @@ const list = ref([
     title: '分析页',
     icon: 'line-md:moon-twotone',
     isClose: true,
+    active: true,
   },
 
   {
@@ -83,10 +93,14 @@ const list = ref([
     icon: 'line-md:moon-twotone',
     isClose: true,
   },
-
   {
     title: '仪表盘',
     icon: 'line-md:linkedin',
+    isClose: true,
+  },
+  {
+    title: '工作台',
+    icon: 'line-md:heart-filled',
     isClose: true,
   },
 
@@ -95,35 +109,105 @@ const list = ref([
     icon: 'line-md:moon-twotone',
     isClose: true,
   },
-
-  {
-    title: '仪表盘',
-    icon: 'line-md:linkedin',
-    isClose: true,
-  },
-
   {
     title: '仪表盘',
     icon: 'line-md:linkedin',
     isClose: true,
   },
   {
+    title: '工作台',
+    icon: 'line-md:heart-filled',
+    isClose: true,
+  },
+
+  {
+    title: '分析页',
+    icon: 'line-md:moon-twotone',
+    isClose: true,
+  },
+  {
     title: '仪表盘',
     icon: 'line-md:linkedin',
+    isClose: true,
+  },
+  {
+    title: '工作台',
+    icon: 'line-md:heart-filled',
+    isClose: true,
+  },
+
+  {
+    title: '分析页',
+    icon: 'line-md:moon-twotone',
+    isClose: true,
+  },
+  {
+    title: '仪表盘',
+    icon: 'line-md:linkedin',
+    isClose: true,
+  },
+  {
+    title: '工作台',
+    icon: 'line-md:heart-filled',
+    isClose: true,
+  },
+
+  {
+    title: '分析页',
+    icon: 'line-md:moon-twotone',
+    isClose: true,
+  },
+  {
+    title: '仪表盘',
+    icon: 'line-md:linkedin',
+    isClose: true,
+  },
+  {
+    title: '工作台',
+    icon: 'line-md:heart-filled',
+    isClose: true,
+  },
+
+  {
+    title: '分析页',
+    icon: 'line-md:moon-twotone',
     isClose: true,
   },
 ])
 
-onMounted(() => {
-  console.log(tabScrollRef.value)
+const resizeObserverDebounce = debounce()
 
-  const bs = new BScroll(tabScrollRef.value!, {
-    scrollX: true,
-    probeType: 3, // listening scroll event
-  })
+const test = () => {}
 
-  console.log()
-})
+const resizeObserver = new ResizeObserver(() => resizeObserverDebounce(() => bScrollInstance?.refresh()))
+
+const initResizeObserver = (targetNode: Element) => resizeObserver.observe(targetNode)
+
+/** 初始化滑动实例 */
+const initChromeScroll = (callback?: (result: boolean) => void) => {
+  destroyChromeScroll()
+
+  if (tabScrollRef.value) {
+    bScrollInstance = new BScroll(tabScrollRef.value, { scrollX: true, probeType: 3, observeDOM: true, mouseWheel: true, bounce: false })
+
+    initResizeObserver(tabScrollRef.value)
+
+    callback?.(true)
+    return
+  }
+
+  callback?.(false)
+}
+
+/** 销毁滑动实例以及取消监听  */
+const destroyChromeScroll = () => {
+  bScrollInstance?.destroy()
+  resizeObserver?.disconnect()
+}
+
+onMounted(() => initChromeScroll())
+
+onBeforeUnmount(() => destroyChromeScroll())
 </script>
 
 <style lang="less" scoped>
@@ -149,93 +233,94 @@ onMounted(() => {
 
 .chrome-tab {
   height: 100%;
+  white-space: nowrap;
 
-  display: flex;
+  overflow: hidden;
 
-  color: var(--el-text-color-primary);
+  .chrome-tab-content {
+    padding: 10px 10px 0 10px;
 
-  font-size: 14px;
+    user-select: none;
 
-  padding: 10px 10px 0 10px;
+    color: var(--el-text-color-primary);
 
-  user-select: none;
+    font-size: 14px;
 
-  overflow-x: auto;
+    display: inline-block;
 
-  overflow-y: hidden;
+    height: 100%;
 
-  // max-width: 100%;
-
-  &::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-  }
-
-  .chrome-tab-item {
-    .flex-item-center-relative ();
-
-    width: fit-content;
-
-    padding: 10px;
-
-    cursor: pointer;
-
-    border-radius: 10px 10px 0 0;
-
-    .chrome-tab-item-content {
+    .chrome-tab-item {
       .flex-item-center-relative ();
 
-      gap: 10px;
+      width: fit-content;
+
+      height: 100%;
+
+      padding: 10px;
+
+      cursor: pointer;
+
+      border-radius: 10px 10px 0 0;
+
+      display: inline-block;
+
+      .chrome-tab-item-content {
+        height: 100%;
+        .flex-item-center-relative ();
+
+        gap: 10px;
+
+        &::after {
+          content: '|';
+          position: absolute;
+          right: -13px;
+        }
+
+        .title {
+          white-space: nowrap;
+        }
+
+        font-size: 14px;
+      }
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        width: 10px;
+        height: 10px;
+      }
+
+      &::before {
+        right: -10px;
+      }
 
       &::after {
-        content: '|';
-        position: absolute;
-        right: -13px;
+        left: -10px;
       }
 
-      .title {
-        white-space: nowrap;
-      }
-
-      font-size: 14px;
-    }
-
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      width: 10px;
-      height: 10px;
-    }
-
-    &::before {
-      right: -10px;
-    }
-
-    &::after {
-      left: -10px;
-    }
-
-    &.active,
-    &:hover {
-      .chrome-tab-item-content {
-        &::after {
-          content: '';
+      &.active,
+      &:hover {
+        .chrome-tab-item-content {
+          &::after {
+            content: '';
+          }
         }
       }
-    }
 
-    &:hover {
-      .rc(var(--el-menu-text-color-1));
-    }
+      &:hover {
+        .rc(var(--el-menu-text-color-1));
+      }
 
-    &.active {
-      color: var(--primary-color);
+      &.active {
+        color: var(--primary-color);
 
-      z-index: 1;
+        z-index: 1;
 
-      .rc(var(--primary-color-4));
+        .rc(var(--primary-color-4));
+      }
     }
   }
 }

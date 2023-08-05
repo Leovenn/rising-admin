@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@better-scroll/core": "^2.5.1",
+    "@better-scroll/mouse-wheel": "^2.5.1",
+    "@better-scroll/observe-dom": "^2.5.1",
     "@element-plus/icons-vue": "^2.1.0",
     "colord": "^2.9.3",
     "element-plus": "^2.3.9",

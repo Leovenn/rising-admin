@@ -8,6 +8,12 @@ dependencies:
   '@better-scroll/core':
     specifier: ^2.5.1
     version: 2.5.1
+  '@better-scroll/mouse-wheel':
+    specifier: ^2.5.1
+    version: 2.5.1
+  '@better-scroll/observe-dom':
+    specifier: ^2.5.1
+    version: 2.5.1
   '@element-plus/icons-vue':
     specifier: ^2.1.0
     version: 2.1.0(vue@3.3.4)
@@ -116,6 +122,18 @@ packages:
     resolution: {integrity: sha512-koKOuYA55dQ04FJRIVUpMGDr1hbCfWmfX0MGp1hKagkQSWSRpwblqACiwtggVauoj9aaJRJZ9hDsTM4weaavlg==}
     dependencies:
       '@better-scroll/shared-utils': 2.5.1
+    dev: false
+
+  /@better-scroll/mouse-wheel@2.5.1:
+    resolution: {integrity: sha512-DGnrirRMY6zMM7xwgx09D/cA9A//3J1/uDkq8iBVEyE5p0sEr/keQpjEfFHGkBRa505BnbBwdbN6f5lugEDSPw==}
+    dependencies:
+      '@better-scroll/core': 2.5.1
+    dev: false
+
+  /@better-scroll/observe-dom@2.5.1:
+    resolution: {integrity: sha512-TCMGFLRfpXBPIwtUV/efliUmfmrhSNI7NXdSyjdWjsLOS7dh3eFkmcom5ERVWMaXVELSmujGXLqobT+dT0C/jg==}
+    dependencies:
+      '@better-scroll/core': 2.5.1
     dev: false
 
   /@better-scroll/shared-utils@2.5.1:
