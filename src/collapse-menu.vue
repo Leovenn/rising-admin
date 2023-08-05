@@ -59,8 +59,6 @@
 </template>
 
 <script lang="ts" setup>
-import { Document, Setting, Lock, User, Position, Star } from '@element-plus/icons-vue'
-
 import CollapseSubMenu from './collapse-sub-menu.vue'
 
 const text = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
