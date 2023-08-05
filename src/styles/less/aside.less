@@ -25,6 +25,23 @@
   }
 }
 
+.el-menu-item-style() {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  > li {
+    &.el-sub-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      > .el-sub-menu__title {
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
 .popper-sub-menu {
   &.el-popper {
     &.is-light {
@@ -132,6 +149,12 @@
           }
         }
       }
+    }
+
+    .el-menu-item-style();
+
+    & ul {
+      .el-menu-item-style();
     }
   }
 }

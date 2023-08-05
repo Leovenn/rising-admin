@@ -14,7 +14,7 @@
 
     <div class="h-[calc(100%-60px)] aside-menu">
       <el-scrollbar>
-        <el-menu class="border-r-none p-r-10px p-l-10px p-b-10px flex flex-col gap-10px" :collapse="isCollapse" :collapse-transition="false" default-active="1">
+        <el-menu class="border-r-none p-r-10px p-l-10px p-b-10px" :collapse="isCollapse" :collapse-transition="false" default-active="1">
           <menu-list :list="list" />
         </el-menu>
       </el-scrollbar>
