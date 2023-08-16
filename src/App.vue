@@ -12,7 +12,7 @@
         </nav>
 
         <div class="h-full flex items-center">
-          <el-tooltip effect="dark" content="github" placement="bottom">
+          <el-tooltip effect="dark" content="github" placement="bottom" :enterable="false">
             <div class="h-full flex items-center cursor-pointer transition-all hover:bg-[var(--el-menu-text-color-1)] p-[0px_10px]" @click="openNewLink('https://github.com/Leovenn/rising-admin')">
               <svg-icon name="logos:github-icon" />
             </div>
