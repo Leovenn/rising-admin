@@ -21,8 +21,17 @@
 
   <icon-icon-park-outline:fire v-if="isRender('icon-park-outline:fire')" />
 
+  <icon-icon-park-outline:close v-if="isRender('icon-park-outline:close')" />
+
+  <icon-icon-park-outline:refresh v-if="isRender('icon-park-outline:refresh')" />
+
+  <!-- logos 集合 icon -->
+  <icon-logos:github-icon v-if="isRender('logos:github-icon')" />
+
   <!-- 本地文件夹icon -->
   <icon-custom:logo v-if="isRender('custom:logo')" />
+
+  <icon-custom:default-avatar v-if="isRender('custom:default-avatar')" />
 </template>
 
 <script lang="ts" setup>

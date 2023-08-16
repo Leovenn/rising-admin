@@ -3,13 +3,29 @@
     <aside-menu />
 
     <div class="h-full flex-1 flex flex-col overflow-hidden">
-      <header class="h-60px shadow-[0_1px_0px_var(--el-border-color)] flex items-center p-l-22px">
+      <header class="h-60px shadow-[0_1px_0px_var(--el-border-color)] flex items-center p-l-22px justify-between">
         <nav class="p-[0px_10px]">
           <el-breadcrumb separator="/">
             <el-breadcrumb-item>仪表盘</el-breadcrumb-item>
             <el-breadcrumb-item>分析页</el-breadcrumb-item>
           </el-breadcrumb>
         </nav>
+
+        <div class="h-full flex items-center">
+          <el-tooltip effect="dark" content="github" placement="bottom">
+            <div class="h-full flex items-center cursor-pointer transition-all hover:bg-[var(--el-menu-text-color-1)] p-[0px_10px]" @click="openNewLink('https://github.com/Leovenn/rising-admin')">
+              <svg-icon name="logos:github-icon" />
+            </div>
+          </el-tooltip>
+
+          <div class="flex items-center gap-6px text-16px color-[var(--el-text-color-primary)] h-full p-[0px_10px] hover:bg-[var(--el-menu-text-color-1)] cursor-pointer transition-all">
+            <div class="text-36px rd-36px overflow-hidden">
+              <svg-icon name="custom:default-avatar" />
+            </div>
+
+            <span>Leoven</span>
+          </div>
+        </div>
       </header>
 
       <div class="h-46px b-b-1px b-b-solid b-b-[var(--el-border-color)]">
@@ -57,6 +73,10 @@ Array.from({ length: 4 }, (item, index) => index + 1).forEach((item) => {
 element.style.setProperty('--el-menu-text-color-1', colord('#fff').darken(0.06).toHex())
 
 const text = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+
+const openNewLink = (url: string) => {
+  window.open(url)
+}
 </script>
 
 <style lang="less" scoped></style>

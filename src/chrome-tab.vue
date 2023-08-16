@@ -1,28 +1,38 @@
 <template>
   <div class="chrome-tab" ref="tabScrollRef">
     <div class="chrome-tab-content">
-      <div class="chrome-tab-item" v-for="item in list" @click="test" :class="{ active: item.active }">
+      <div class="chrome-tab-item" v-for="item in list" @contextmenu.prevent="contextmenuEvent" :class="{ active: item.active }">
         <div class="chrome-tab-item-content">
-          <div class="icon">
-            <svg-icon :name="item.icon" />
-          </div>
+          <div class="icon"><svg-icon :name="item.icon" /></div>
 
-          <div class="title">{{ item.title }}</div>
+          <div class="title" v-text="item.title"></div>
 
           <div class="icon-line-md:close-small hover:icon-line-md:close-circle" v-if="item.isClose"></div>
         </div>
       </div>
     </div>
   </div>
+
+  <virtual-drop-down-menu
+    v-model="showDropDownMenu"
+    :offset="0"
+    :list="[
+      { icon: 'icon-park-outline:close', title: '关闭', key: 'close', disable: false },
+      { icon: 'icon-park-outline:refresh', title: '刷新', key: 'refresh', disable: false },
+    ]"
+    :target-dom="targetDom!"
+    @change="command"
+    trigger="contextmenu" />
 </template>
 
 <script lang="ts" setup>
 import BScroll from '@better-scroll/core'
 import ObserveDOM from '@better-scroll/observe-dom'
-import MouseWheel from '@better-scroll/mouse-wheel'
 import type { BScrollConstructor } from '@better-scroll/core/dist/types/BScroll'
 import { debounce } from '@/utils/debounce'
-BScroll.use(ObserveDOM).use(MouseWheel)
+import virtualDropDownMenu from './virtual-drop-down-menu.vue'
+
+BScroll.use(ObserveDOM)
 
 const tabScrollRef = ref<HTMLDivElement>()
 
@@ -177,7 +187,21 @@ const list = ref([
 
 const resizeObserverDebounce = debounce()
 
-const test = () => {}
+const targetDom = ref<HTMLElement>()
+
+const showDropDownMenu = ref(false)
+
+const contextmenuEvent = (e: MouseEvent) => {
+  targetDom.value = e.currentTarget as HTMLElement
+
+  showDropDownMenu.value = false
+
+  setTimeout(() => (showDropDownMenu.value = true))
+}
+
+const command = (e: string) => {
+  console.log(e)
+}
 
 const resizeObserver = new ResizeObserver(() => resizeObserverDebounce(() => bScrollInstance?.refresh()))
 
@@ -188,7 +212,9 @@ const initChromeScroll = (callback?: (result: boolean) => void) => {
   destroyChromeScroll()
 
   if (tabScrollRef.value) {
-    bScrollInstance = new BScroll(tabScrollRef.value, { scrollX: true, probeType: 3, observeDOM: true, mouseWheel: true, bounce: false })
+    bScrollInstance = new BScroll(tabScrollRef.value, { scrollX: true, probeType: 3, observeDOM: true, bounce: false })
+
+    bScrollInstance.on('scroll', () => (showDropDownMenu.value = false))
 
     initResizeObserver(tabScrollRef.value)
 
@@ -320,6 +346,12 @@ onBeforeUnmount(() => destroyChromeScroll())
         z-index: 1;
 
         .rc(var(--primary-color-4));
+      }
+
+      &:last-of-type {
+        .chrome-tab-item-content::after {
+          content: '';
+        }
       }
     }
   }
