@@ -11,15 +11,15 @@
           </el-breadcrumb>
         </nav>
 
-        <div class="h-full flex items-center">
+        <div class="h-full flex items-center text-16px">
           <el-tooltip effect="dark" content="github" placement="bottom" :enterable="false">
             <div class="h-full flex items-center cursor-pointer transition-all hover:bg-[var(--el-menu-text-color-1)] p-[0px_10px]" @click="openNewLink('https://github.com/Leovenn/rising-admin')">
               <svg-icon name="logos:github-icon" />
             </div>
           </el-tooltip>
 
-          <div class="flex items-center gap-6px text-16px color-[var(--el-text-color-primary)] h-full p-[0px_10px] hover:bg-[var(--el-menu-text-color-1)] cursor-pointer transition-all">
-            <div class="text-36px rd-36px overflow-hidden">
+          <div class="flex items-center gap-6px color-[var(--el-text-color-primary)] h-full p-[0px_10px] hover:bg-[var(--el-menu-text-color-1)] cursor-pointer transition-all">
+            <div class="text-26px rd-36px overflow-hidden">
               <svg-icon name="custom:default-avatar" />
             </div>
 
