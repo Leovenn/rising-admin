@@ -13,7 +13,7 @@ const builtinRoutes: RouteRecordRaw[] = [
   {
     name: 'login',
     path: '/login',
-    component: () => import('@/login.vue'),
+    component: () => import('@/views/_builtin/login/index.vue'),
   },
 
   {
